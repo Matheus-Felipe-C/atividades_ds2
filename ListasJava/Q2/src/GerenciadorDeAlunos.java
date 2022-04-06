@@ -8,7 +8,6 @@
  *
  * @author ALUNO
  */
-public class Alunos {
-    private String nome;
-    private double 
+public class GerenciadorDeAlunos {
+    
 }

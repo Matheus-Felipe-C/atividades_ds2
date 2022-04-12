@@ -48,7 +48,7 @@ public class EmpilhadorDeCadeiras {
         for (Stack<Cadeira> s: lista) {
             if (s.get(0).getModelo().equals(s)) {
                 s.pop();
-                return "Cadeira removida da pilha";
+                return "Cadeira removida da pilha"; 
             }
         }
         return "Não existe nenhuma cadeira com esse modelo nas pilhas";

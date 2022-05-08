@@ -1,3 +1,5 @@
+# Status - concluída
+
 # Requisitos
 
 1- Escrever um programa que distribui senhas de atendimento

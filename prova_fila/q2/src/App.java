@@ -4,17 +4,35 @@ import java.util.Queue;
 public class App {
     public static void main(String[] args) throws Exception {
         Queue<Pessoa> queue = new PriorityQueue<>();
-        Pessoa p1 = new Pessoa(3, "Joseilson");
-        Pessoa p2 = new Pessoa(2, "Marlon");
+        Pessoa p1 = new Pessoa(0, "Joseilson");
+        Pessoa p2 = new Pessoa(1, "Marlon");
+        Pessoa p3 = new Pessoa(0, "Maria");
 
         System.out.println("Adicionando pessoas a fila...");
         queue.add(p2);
         queue.add(p1);
         queue.add(p2);
         queue.add(p2);
+        queue.add(p3);
 
-        System.out.println("\nLista de pessoas: \n");
-        System.out.println(queue.toString());
+        System.out.println("Chamando pessoas...");
+
+        for (int count = 0; queue.size() != 0; count++) {
+            /* Se mais de 3 pessoas com prioridade foram atendidas, uma pessoa
+            normal (aux) será atendida */
+            if (count >= 3) {
+                for (Pessoa aux : queue) {
+                    if (aux.getPrioridade() == 3) {
+                        System.out.println(aux);
+                        queue.remove(aux);
+                        count = 0;
+                        continue;
+                    }
+                }
+            }
+            System.out.println(queue.poll() + "\n");
+            count++;
+        }
 
     }
 }

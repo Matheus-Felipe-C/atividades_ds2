@@ -30,7 +30,7 @@ public class Pessoa implements Comparable<Pessoa> {
     
     @Override
     public int compareTo(Pessoa o) {
-        return o.prioridade < this.prioridade ? 1 : -1;
+        return o.prioridade > this.prioridade ? 1 : -1;
     }
 
 }

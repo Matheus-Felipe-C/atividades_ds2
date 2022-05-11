@@ -14,40 +14,49 @@ import java.util.Stack;
  * @author ALUNO
  */
 public class EmpilhadorDeCadeiras {
-    private List<Stack> listaPilha = new ArrayList<>();
-    private Stack <Cadeira> pilha = new Stack <Cadeira>();
+    private List<Stack> lista = new ArrayList<>();
+    
     
     public String empilhar(Cadeira c){
         
         //Verifica se listaPilha está vazia
 
-        if (listaPilha.isEmpty()) {
-            pilha.add(c);
-            listaPilha.add(pilha);
-            return "Cadeira empilhada";
+        if (lista.isEmpty()) {
+            Stack <Cadeira> aux = new Stack<>();
+            aux.add(c);
+            lista.add(aux);
         }
-        
-        //Verifica se os modelos da pilha são iguais
-
-        if (pilha.get(pilha.size()-1).getModelo() == c.getModelo()) {
-            return "Só se pode adicionar cadeiras de modelos iguais";
+        else {
+            boolean adicionado = false;
+            for (Stack <Cadeira> s: lista) {
+                if (s.get(0).getModelo().equals(c.getModelo()) && s.size() < 10) {
+                    s.add(c);
+                    adicionado = true;
+                    break;
+                }
+            }
+            if (!adicionado) {
+                Stack<Cadeira> aux2 = new Stack<>();
+                aux2.add(c);
+            }
         }
 
-        //Verifica se a pilha possui 10 ou mais elementos
-
-        if (pilha.size() >= 10) {
-            
-        }
+        return "Cadeira adicionada";
     }
     
-    public String desempilhar(){
-        pilha.pop();
-        return "Cadeira removida da pilha";
+    public String desempilhar(String modelo){
+        for (Stack<Cadeira> s: lista) {
+            if (s.get(0).getModelo().equals(s)) {
+                s.pop();
+                return "Cadeira removida da pilha"; 
+            }
+        }
+        return "Não existe nenhuma cadeira com esse modelo nas pilhas";
     }
     
     public void imprimir(){
-        for(Cadeira c: pilha){
-            System.out.println(c);
+        for(Stack<Cadeira> s: lista){
+            System.out.println(s);
         }
     }
 }

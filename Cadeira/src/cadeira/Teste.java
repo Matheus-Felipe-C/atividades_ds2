@@ -33,10 +33,13 @@ public class Teste {
                     System.out.println(emp.empilhar(novo));
                     break;
                 case 2:
-                    System.out.println(emp.desempilhar());
+                    System.out.println("Digite o modelo da cadeira");
+                    String modelo1 = scan.nextLine();
+                    System.out.println(emp.desempilhar(modelo1));
                     break;
                 case 3:
                     emp.imprimir();
+                    break;
                 case 0:
                     System.out.println("programa encerrado");
                     break;

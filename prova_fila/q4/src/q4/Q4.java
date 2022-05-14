@@ -36,17 +36,19 @@ public class Q4 {
 
         while (roda.size() != 1) {
             i = random.nextInt(roda.size());
-
-            System.out.println("Batata quente, quente, quente... Queimou!");
-
+            
             for (int count = 0; count <=i; count++) {
                 roda2.add(roda.remove());
             }
-            System.out.println("Removido - " + roda.poll());
+            
+            if (roda.peek() != null) {
+                System.out.println("Batata quente, quente, quente... Queimou!");
+                System.out.println("Removido - " + roda.poll());
+            }
 
             for (int count = 0; count <=i; count++) {
                 roda.add(roda2.remove());
-            }
+            }            
         }
         System.out.println("Vencedor - " + roda.peek());
     }

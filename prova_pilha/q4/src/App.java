@@ -19,5 +19,6 @@ public class App {
             continuar = scan.next().charAt(0);
             pilha.clear();
         }
+        scan.close();
     }
 }
